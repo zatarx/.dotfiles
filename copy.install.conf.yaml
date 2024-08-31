@@ -1,0 +1,47 @@
+
+- defaults:
+    link:
+      # removes the old target if it's a symlink
+      relink: true
+      # create parent dirs to the link as needed
+      create: true
+
+- clean: ['~', '.config']
+
+- link:
+    # empty value signifies the source file dotfile/directory has the same name
+    ~/bin:
+
+    ~/.xinitrc:
+    ~/.Xresources:
+    ~/.Xmodmap:
+    ~/dotfiles: ''
+    ~/.tmux.conf:
+
+    ~/.config/i3:
+    ~/.config/picom:
+    ~/.config/nvim:
+    # ~/.vim: vim
+    # ~/.vimrc: vimrc
+    ~/.local/bin: .local/bin
+
+    ~/.bash_profile:
+    ~/.bashrc:
+    ~/.bash_logout:
+    ~/.bash_aliases:
+
+    ~/emoji_test:
+    ~/.dmrc:
+    ~/.fehbg:
+    ~/.gitconfig:
+    ~/vscode_config:
+
+
+- create:
+    - ~/.ssh
+    - ~/.vim/undo-history
+    - ~/Projects
+    - ~/backups
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]

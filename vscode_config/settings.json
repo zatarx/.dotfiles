@@ -1,0 +1,42 @@
+
+{
+    "[python]": {
+        
+        "diffEditor.ignoreTrimWhitespace": false
+    },
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "Mayukai Reversal",
+    "explorer.confirmDragAndDrop": false,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 500,
+    // Dispatch property is needed to keep the caps <--> esc remapping active (keyCode value is expected) 
+    "keyboard.dispatch": "keyCode",
+    "vim.leader": "<Space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+    // Navigation
+    // switch b/w buffers
+        { "before": ["leader", "v"], "commands": [":vsplit"] },
+        { "before": ["leader", "s"], "commands": [":split"] },
+    // panes
+        {
+        "before": ["leader", "h"],
+        "commands": ["workbench.action.focusLeftGroup"]
+        },
+        {
+        "before": ["leader", "j"],
+        "commands": ["workbench.action.focusBelowGroup"]
+        },
+        {
+        "before": ["leader", "k"],
+        "commands": ["workbench.action.focusAboveGroup"]
+        },
+        {
+        "before": ["leader", "l"],
+        "commands": ["workbench.action.focusRightGroup"]
+        },
+        // FILE TREE
+        // For more info, see https://www.youtube.com/watch?v=GST8we5uABo
+        {"before": ["leader", "n", "e"], "commands": ["workbench.explorer.fileView.focus"]}
+    ],
+    "window.titleBarStyle": "custom"
+}

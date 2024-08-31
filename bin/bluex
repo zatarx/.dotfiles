@@ -1,0 +1,25 @@
+#!/bin/bash
+
+MAC="18:45:B3:3B:B2:12"
+
+powered() {
+    timeout 1s bash -c "echo 'show' | bluetoothctl | grep 'Powered' | cut -d ' ' -f 2"
+}
+
+connected() {
+    echo "info ${MAC}" | bluetoothctl | grep "Connected" | cut -d " " -f 2
+}
+
+while true
+do
+    if [ "$(powered)" != "yes" ]; then
+	echo "Powering on Bluetooth..."
+        sudo systemctl start bluetooth
+    elif [ $(powered) = yes ] && [ $(connected) != yes ]; then
+        echo "connect ${MAC}" | bluetoothctl
+	exit 0
+    else
+	echo "Already Connected"
+	exit 0
+    fi
+done

@@ -1,0 +1,8 @@
+venv/
+nvim/LICENSE.md
+nvim/README.md
+i3/unused_bumblebee-status
+nvim/doc/kickstart.txt
+nvim/doc/tags
+nvim/lazy-lock.json
+.gitconfig
